@@ -41,11 +41,11 @@
   </div><!-- /footer -->
 </div><!-- /home -->
 <div data-role="page" id="about">
-  <div data-role="header" data-theme="b">
+  <div data-role="header" data-theme="a">
     <a data-icon="arrow-l" data-rel="back" data-transition="slide">Back</a>
     <h1>About Us</h1>
   </div>
-  <div data-role="content"> 
+  <div data-role="content" id="about-content"> 
     <div id="about-overview">
       <img src="http://www.frankenman.hk/wp-content/uploads/FACTORY.png" class="img-responsive" />
       <h2>Company</h2>
@@ -75,8 +75,8 @@
     </div>
   </div><!-- /content -->
   
-  <div data-role="footer" data-theme="a" data-position="fixed"> 
-    <div id="navbar" data-role="navbar" data-grid="c" data-theme="a">
+  <div data-role="footer" data-position="fixed" data-theme="b"> 
+    <div id="navbar" data-role="navbar" data-grid="c">
       <ul>
         <li><a data-icon="arrow-l" dest="#about-overview" class="ui-btn-active">Overview</a></li>
         <li><a data-icon="arrow-l" dest="#about-history">History</a></li>
@@ -89,7 +89,7 @@
 $(document).ready(function() {
   $("#navbar ul a").each(function () {
     $(this).click(function() {
-      $('#about div').css({'display':'none'});
+      $('#about-content div').css({'display':'none'});
       $($(this).attr('dest')).css({'display':'block'});
       $(this).addClass('ui-btn-active');
     }); 
