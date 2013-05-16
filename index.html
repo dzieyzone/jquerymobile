@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>My Page</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head> 
+<body> 
+
+<div data-role="page">
+  
+  <div data-role="panel" id="mypanel" data-theme="a">
+    <div class="logo"><img src="http://m.frankenman.hk/assets/logo/logo-hires-white.png" style="width:130px;height:32px"></div>
+    <ul data-role="listview" data-theme="a">
+      <li><a href="about.html" rel="external">About Us</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div><!-- /panel -->
+  
+  <div data-role="header" data-theme="b">
+    <a href="#mypanel" data-icon="bars">Menu</a>
+    <h1>Frankenman</h1>
+  </div><!-- /header -->
+
+  <div data-role="content"> 
+    <p>
+    <img src="http://www.frankenman.hk/wp-content/uploads/opener2.png" alt="Frankenman" class="img-responsive">
+    <ul data-role="listview">
+      <li><a href="about.html" rel="external">About Us</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    </p>    
+  </div><!-- /content -->
+  
+  <div data-role="footer" data-theme="a" data-position="fixed" id="footer"> 
+    <a href="#" data-role="button" data-icon="home">HOME</a>    
+  </div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+<script>
+$(document).ready(function() {
+  $( "#mypanel" ).panel( "open" , optionsHash );
+});
+</script>
+</html>

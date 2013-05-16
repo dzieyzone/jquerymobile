@@ -1,0 +1,20 @@
+/**DEFAULTS**/
+.img-responsive {
+  width:100%;
+}
+
+/**PANELS**/
+#mypanel .logo{
+  margin:0 0 20px 0;
+  text-align:center;	
+}
+
+/**HEADERS**/
+
+/**CONTENT**/
+
+/**FOOTERS**/
+#footer {
+  padding:10px 0;
+  text-align:center;	
+}
