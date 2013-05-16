@@ -16,7 +16,7 @@
     <div class="logo"><img src="http://m.frankenman.hk/assets/logo/logo-hires-white.png" style="width:130px;height:32px"></div>
     <ul data-role="listview">
       <li><a href="#about" data-transition="slide">About Us</a></li>
-      <li><a href="#">Products</a></li>
+      <li><a href="products.html" rel="external">Products</a></li>
       <li><a href="#">Support</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
@@ -30,13 +30,13 @@
     <img src="http://www.frankenman.hk/wp-content/uploads/opener2.png" alt="Frankenman" class="img-responsive">
     <ul data-role="listview">
       <li><a href="#about" data-transition="slide">About Us</a></li>
-      <li><a href="#">Products</a></li>
+      <li><a href="products.html" rel="external">Products</a></li>
       <li><a href="#">Support</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
     </p>
   </div><!-- /content -->
-  <div data-role="footer" data-theme="b" data-position="fixed" class="footer"> 
+  <div data-role="footer" data-theme="b" data-position="fixed" class="footer-fix"> 
     <a href="#" data-role="button" data-icon="home" data-iconpos="notext">HOME</a>    
   </div><!-- /footer -->
 </div><!-- /home -->
@@ -78,16 +78,16 @@
   <div data-role="footer" data-position="fixed" data-theme="b"> 
     <div id="navbar" data-role="navbar" data-grid="c">
       <ul>
-        <li><a data-icon="arrow-l" dest="#about-overview" class="ui-btn-active">Overview</a></li>
-        <li><a data-icon="arrow-l" dest="#about-history">History</a></li>
-        <li><a data-icon="arrow-l" dest="#about-vision">Vision</a></li>
-        <li><a data-icon="arrow-l" dest="#about-mission">Mission</a></li>
+        <li><a dest="#about-overview" class="ui-btn-active">Overview</a></li>
+        <li><a dest="#about-history">History</a></li>
+        <li><a dest="#about-vision">Vision</a></li>
+        <li><a dest="#about-mission">Mission</a></li>
     </div>
    </div> <!-- /footer -->   
 </div><!-- /about -->
 <script>
 $(document).ready(function() {
-  $("#navbar ul a").each(function () {
+  $("#about #navbar ul a").each(function () {
     $(this).click(function() {
       $('#about-content div').css({'display':'none'});
       $($(this).attr('dest')).css({'display':'block'});
