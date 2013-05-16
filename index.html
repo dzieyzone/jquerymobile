@@ -85,5 +85,16 @@
     </div>
    </div> <!-- /footer -->   
 </div><!-- /about -->
+<script>
+$(document).ready(function() {
+  $("#navbar ul a").each(function () {
+    $(this).click(function() {
+      $('#about div').css({'display':'none'});
+      $($(this).attr('dest')).css({'display':'block'});
+      $(this).addClass('ui-btn-active');
+    }); 
+  });
+});
+</script>
 </body>
 </html>
