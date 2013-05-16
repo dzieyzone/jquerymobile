@@ -85,6 +85,40 @@
     </div>
    </div> <!-- /footer -->   
 </div><!-- /about -->
+<div data-role="page" id="products">
+  <div data-role="header" data-theme="a">
+    <a data-icon="arrow-l" data-rel="back" data-transition="slide">Back</a>
+    <h1>Products</h1>
+  </div>
+  <div data-role="content" id="products-content"> 
+    <div id="products-chex" class="product-div">
+      <ul data-role="listview">
+        <li><a data-icon="arrow-l" href="#">CPH34 HV High Volume Stapled Hemorrhoidopexy</a></li>
+        <li>Aud12</li>
+        <li>BMW</li>
+        <li>Cadillac</li>
+        <li>Ferrari</li>
+      </ul> 
+    </div>
+    <div style="display:none" id="products-frankenman" class="product-div">
+      <ul data-role="listview">
+        <li><a data-icon="arrow-l" href="#">Acura2</a></li>
+        <li>Aud1i</li>
+        <li>BMW</li>
+        <li>Cadillac</li>
+        <li>Ferrari</li>
+      </ul>    
+    </div>
+  </div><!-- /content -->
+  
+  <div data-role="footer" data-position="fixed" data-theme="b"> 
+    <div id="navbar" data-role="navbar" data-grid="a">
+      <ul>
+        <li><a data-icon="arrow-l" dest="#products-chex" class="ui-btn-active">Chex Products</a></li>
+        <li><a data-icon="arrow-l" dest="#products-frankenman">Frankenman Products</a></li>
+    </div>
+   </div> <!-- /footer -->   
+</div><!-- /products -->
 <script>
 $(document).ready(function() {
   $("#about #navbar ul a").each(function () {
