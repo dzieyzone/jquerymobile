@@ -54,3 +54,12 @@
   -moz-box-shadow: inset 0 3px 0 #8284BD;
   box-shadow: inset 0 3px 0 #8284BD;
 }
+
+/** CONTACT **/
+.messages{
+  padding:10px 0;
+  font-style:italic;
+  font-size:90%;
+  color:#ababab;	
+  text-align:center;
+}

@@ -18,7 +18,7 @@
       <li><a href="#about" data-transition="slide">About Us</a></li>
       <li><a href="products.html" rel="external">Products</a></li>
       <li><a href="support.html" rel="external">Support</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="#contact" data-transition="slide">Contact Us</a></li>
     </ul>
   </div><!-- /panel -->
   <div data-role="header" data-theme="a">
@@ -32,7 +32,7 @@
       <li><a href="#about" data-transition="slide">About Us</a></li>
       <li><a href="products.html" rel="external" data-transition="slide">Products</a></li>
       <li><a href="support.html" rel="external">Support</a></li>
-      <li><a href="#">Contact Us</a></li>
+      <li><a href="#contact" data-transition="slide">Contact Us</a></li>
     </ul>
     </p>
   </div><!-- /content -->
@@ -84,6 +84,53 @@
     </div>
    </div> <!-- /footer -->   
 </div><!-- /about -->
+<div data-role="page" id="contact" data-theme="a">
+  <div data-role="header" data-theme="a">
+    <a data-icon="arrow-l" data-rel="back" data-transition="slide" data-iconpos="notext">Back</a>
+    <h1>Contact Us</h1>
+  </div>
+  <div data-role="content" id="contact-content"> 
+    <div id="contact-info">
+      <iframe src="http://www.map-generator.org/1559a22f-83df-46d9-856a-929f44c1cdb9/iframe-map.aspx" scrolling="no" style="width:100%;height:60%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      <p>
+        <strong>Frankenman International Limited</strong> <br />
+        Suite 1107, Bo. 9 Wing Hong Street <br />
+        Cheung Sha Wan, Kowloon, Hong Kong  <br /><br />
+        <strong>Phone</strong>: +852 3106 3035 <br />
+        <strong>Fax</strong>: +852 3106 0510 <br />
+        <strong>Email</strong>: info@frankenman.hk <br />
+      </p>
+    </div>
+    <div style="display:none" id="contact-form">
+      <div class="form">
+        <div class="messages"></div>
+          <fieldset>
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="name" value="">
+          </fieldset>
+          <fieldset>
+            <label for="mail">Email:</label>
+            <input type="text" name="mail" class="mail" value="">
+          </fieldset>
+          <fieldset>
+            <label for="message">Message:</label>
+            <textarea cols="40" rows="8" name="message" class="message"></textarea>
+          </fieldset>
+          <fieldset>
+            <input type="submit" value="Submit" class="submit">
+         </fieldset>
+       </div>
+    </div>
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed" data-theme="c"> 
+    <div id="navbar" data-role="navbar" data-grid="a">
+      <ul>
+        <li><a href="#contact-info" class="ui-btn-active">Contact Info</a></li>
+        <li><a href="#contact-form">Contact Form</a></li>
+    </div>
+   </div> <!-- /footer -->   
+</div><!-- /contact -->
 <script src="js/nav.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>
