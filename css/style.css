@@ -12,7 +12,9 @@
 /**HEADERS**/
 
 /**CONTENT**/
-
+#video .ui-content {
+  height: 100%;
+}
 /**FOOTERS**/
 .footer-fix {
   padding:10px 0;

@@ -9,6 +9,9 @@
 
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="dist/html5shiv.js"></script>
+  <![endif]-->
 </head> 
 <body> 
 <div data-role="page" id="support" data-theme="d">
@@ -62,48 +65,19 @@
     </div>
    </div> <!-- /footer -->
 </div><!-- /products -->
-<div data-role="page" id="product-1" data-theme="d">
-  <div data-role="header" data-theme="a">
+<div data-role="page" id="video" data-theme="d">
+  <header data-role="header" data-theme="a">
     <a data-icon="arrow-l" data-rel="back" data-transition="slide" data-iconpos="notext">Back</a>
-    <h1>Chex Products</h1>
-  </div>
-  <div data-role="content" id="product-1-content">
-    <div id="product-1-overview">
-      <img src="http://www.frankenman.hk/wp-content/uploads/cphhv-lg.png" class="img-responsive centered" />
-    </div>
-    <div id="product-1-description">
-      <h2>CPH34 HV High Volume Stapled Hemorrhoidopexy</h2>
-       <img src="http://www.frankenman.hk/wp-content/uploads/CPH34HV.png" class="img-responsive centered" />
-       <p>The Chex&#8482; CPH34HV is the first device specifically designed to maximise the volume of the staple housing whilst maintaining the essential design characteristics of, what has been proven scientifically and in clinical use, to be the most effective device in use today for Stapled haemorrhoidopexy. The Chex&#8482; CPH34HV a remarkable step forward in the treatment of haemorrhoids, ODS and associated Rectal Prolapse.</p>
-    </div>
-    <div id="product-1-features">
-      <h2>CPH34 HV High Volume Stapled Hemorrhoidopexy</h2>
-       <img src="http://www.frankenman.hk/wp-content/uploads/CPH34HV.png" class="img-responsive centered" />
-       <p></p>
-       <img src="http://www.frankenman.hk/wp-content/uploads/cphhv-specs.png" class="img-responsive centered" />
-    </div>
-    <div id="product-1-materials">
-      <h2>CPH34 HV High Volume Stapled Hemorrhoidopexy</h2>
-      <img src="http://www.frankenman.hk/wp-content/uploads/cphhv-download1.png" class="img-responsive centered" />
-      <p></p>
-      <img src="http://www.frankenman.hk/wp-content/uploads/cphhv-download2.png" class="img-responsive centered" />
-      <p></p>
-      <a href="http://www.frankenman.hk/wp-content/uploads/CPH34HV.pdf" data-role="button" data-theme="a">Download PDF</a>    
-    </div>
+    <h1>Video</h1>
+  </header>
+  <div data-role="content">
+    <div id="player"></div>
   </div><!-- /content -->
-  <div data-role="footer" data-position="fixed" data-theme="b"> 
-    <div id="navbar" data-role="navbar" data-grid="c">
-      <ul>
-        <li><a href="#product-1-overview" class="ui-btn-active first">Overview</a></li>
-        <li><a href="#product-1-description">Description</a></li>
-        <li><a href="#product-1-features">Features</a></li>
-        <li><a href="#product-1-materials">Materials</a></li>
-      </ul>
-    </div>
-   </div> <!-- /footer -->   
 </div><!-- /product 1 -->
+<script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/nav.js"></script>
 <script src="js/jquery.lazyload.min.js"></script>
+<script src="js/player.js"></script>
 <script>
 $(document).delegate('#product', 'pageinit', function() {
     //notice I start the selection with the current page,
