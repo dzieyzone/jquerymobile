@@ -18,3 +18,37 @@
   padding:10px 0;
   text-align:center;	
 }
+
+.ui-panel-position-left {
+  -webkit-box-shadow: -1px 0 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: -1px 0 2px rgba(0,0,0,0.2);
+  box-shadow: -1px 0 2px rgba(0,0,0,0.2);
+}
+
+.ui-btn-inner {
+  border-top: 1px solid   #1d1d1d;
+  border-color: 1d1d1d;
+}
+
+.ui-btn-up-d .ui-icon {
+  background-image: url('../themes/images/icons-18-black.png');
+}
+
+.ui-btn-hover-d .ui-btn-inner,
+.ui-btn-up-d .ui-btn-inner {
+  border-top: 1px solid #ebebeb;
+}
+
+.ui-bar-c {
+  border: none;
+  background: none;
+}
+
+.ui-footer .ui-btn-hover-c,
+.ui-footer .ui-btn-active.ui-btn-up-c {
+  color: #fff;
+  background-color: #1d1d1d;
+  -webkit-box-shadow: inset 0 3px 0 #8284BD;
+  -moz-box-shadow: inset 0 3px 0 #8284BD;
+  box-shadow: inset 0 3px 0 #8284BD;
+}

@@ -11,13 +11,13 @@
   <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 </head> 
 <body> 
-<div data-role="page" id="home">
-  <div data-role="panel" id="mypanel" data-theme="b">
+<div data-role="page" id="home" data-theme="a">
+  <div data-role="panel" id="mypanel" data-theme="c">
     <div class="logo"><img src="http://m.frankenman.hk/assets/logo/logo-hires-white.png" style="width:130px;height:32px"></div>
-    <ul data-role="listview">
+    <ul data-role="listview" data-theme="c">
       <li><a href="#about" data-transition="slide">About Us</a></li>
       <li><a href="products.html" rel="external">Products</a></li>
-      <li><a href="#">Support</a></li>
+      <li><a href="support.html" rel="external">Support</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
   </div><!-- /panel -->
@@ -25,22 +25,22 @@
     <a href="#mypanel" data-icon="bars" data-iconpos="notext">Menu</a>
     <h1>Frankenman</h1>
   </div><!-- /header -->
-  <div data-role="content"> 
+  <div data-role="content" data-theme="d"> 
     <p>
     <img src="http://www.frankenman.hk/wp-content/uploads/opener2.png" alt="Frankenman" class="img-responsive">
     <ul data-role="listview">
       <li><a href="#about" data-transition="slide">About Us</a></li>
       <li><a href="products.html" rel="external" data-transition="slide">Products</a></li>
-      <li><a href="#">Support</a></li>
+      <li><a href="support.html" rel="external">Support</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
     </p>
   </div><!-- /content -->
   <div data-role="footer" data-theme="b" data-position="fixed" class="footer-fix"> 
-    <a href="#" data-role="button" data-icon="home" data-iconpos="notext">HOME</a>    
+    <a href="#" data-role="button" data-icon="home" data-iconpos="notext">HOME</a>
   </div><!-- /footer -->
 </div><!-- /home -->
-<div data-role="page" id="about">
+<div data-role="page" id="about" data-theme="a">
   <div data-role="header" data-theme="a">
     <a data-icon="arrow-l" data-rel="back" data-transition="slide" data-iconpos="notext">Back</a>
     <h1>About Us</h1>
@@ -74,61 +74,16 @@
       
     </div>
   </div><!-- /content -->
-  
-  <div data-role="footer" data-position="fixed" data-theme="b"> 
+  <div data-role="footer" data-position="fixed" data-theme="c"> 
     <div id="navbar" data-role="navbar" data-grid="c">
       <ul>
-        <li><a dest="#about-overview" class="ui-btn-active">Overview</a></li>
-        <li><a dest="#about-history">History</a></li>
-        <li><a dest="#about-vision">Vision</a></li>
-        <li><a dest="#about-mission">Mission</a></li>
+        <li><a href="#about-overview" class="ui-btn-active">Overview</a></li>
+        <li><a href="#about-history">History</a></li>
+        <li><a href="#about-vision">Vision</a></li>
+        <li><a href="#about-mission">Mission</a></li>
     </div>
    </div> <!-- /footer -->   
 </div><!-- /about -->
-<div data-role="page" id="products">
-  <div data-role="header" data-theme="a">
-    <a data-icon="arrow-l" data-rel="back" data-transition="slide">Back</a>
-    <h1>Products</h1>
-  </div>
-  <div data-role="content" id="products-content"> 
-    <div id="products-chex" class="product-div">
-      <ul data-role="listview">
-        <li><a data-icon="arrow-l" href="#">CPH34 HV High Volume Stapled Hemorrhoidopexy</a></li>
-        <li>Aud12</li>
-        <li>BMW</li>
-        <li>Cadillac</li>
-        <li>Ferrari</li>
-      </ul> 
-    </div>
-    <div style="display:none" id="products-frankenman" class="product-div">
-      <ul data-role="listview">
-        <li><a data-icon="arrow-l" href="#">Acura2</a></li>
-        <li>Aud1i</li>
-        <li>BMW</li>
-        <li>Cadillac</li>
-        <li>Ferrari</li>
-      </ul>    
-    </div>
-  </div><!-- /content -->
-  
-  <div data-role="footer" data-position="fixed" data-theme="b"> 
-    <div id="navbar" data-role="navbar" data-grid="a">
-      <ul>
-        <li><a data-icon="arrow-l" dest="#products-chex" class="ui-btn-active">Chex Products</a></li>
-        <li><a data-icon="arrow-l" dest="#products-frankenman">Frankenman Products</a></li>
-    </div>
-   </div> <!-- /footer -->   
-</div><!-- /products -->
-<script>
-$(document).ready(function() {
-  $("#about #navbar ul a").each(function () {
-    $(this).click(function() {
-      $('#about-content div').css({'display':'none'});
-      $($(this).attr('dest')).css({'display':'block'});
-      $(this).addClass('ui-btn-active');
-    }); 
-  });
-});
-</script>
+<script src="js/nav.js"></script>
 </body>
 </html>
