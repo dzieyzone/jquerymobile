@@ -6,7 +6,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 	  type: 'POST', // defaults to 'GET'
-	  url: "http://localhost/jquerymobile/contact.php?name="+name+"&mail="+mail+"&message="+message,
+	  url: "http://m.frankenman.hk/jqmtest/contact.php?name="+name+"&mail="+mail+"&message="+message,
 	  data: {name : ""},
 	  dataType: 'html', //'json', 'xml', 'html', or 'text'
 	  success: function(response) { 
