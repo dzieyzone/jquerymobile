@@ -1,5 +1,33 @@
-(function($) {
-  // Before handling a page change...
+require.config( {
+  paths: {
+    "jquery": "libs/jquery-1.9.1.min",
+    "jquerymobile": "libs/jquery.mobile-1.3.1.min",
+    "underscore": "libs/lodash.compat.min",
+    "backbone": "libs/backbone-min"
+  },
+  shim: {
+    "backbone": {
+      "deps": [ "underscore", "jquery" ],
+      "exports": "Backbone"
+    }
+  }
+});
+
+require([
+  "jquery",
+  "backbone",
+  "routers/mobileRouter",
+], function( $, Backbone, Mobile ) {
+  $(document).on("mobileinit",
+    function() {
+      $.support.cors = true;
+      $.mobile.allowCrossDomainPages = true;
+      $.mobile.linkBindingEnabled = false;
+      $.mobile.hashListeningEnabled = false;
+      $.mobile.page.prototype.options.domCache = true;
+    }
+  );
+
   $(document).bind("pagebeforechange", function(e, data){
     // If the new page is not being loaded by URL, bail
     if (typeof data.toPage !== "string") {
@@ -24,6 +52,9 @@
     var $content = $($a.attr("href"));
     $content.siblings().hide();
     $content.show();
+  });
+
+  require(["jquerymobile"], function() {
+    this.router = new Mobile();
+  });
 });
- 
-})(jQuery);
