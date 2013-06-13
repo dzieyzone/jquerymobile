@@ -6,10 +6,10 @@ define([
   "jquery",
   "backbone",
   "underscore",
-  'text!tpl/ProductsListView.html'
-], function( $, Backbone, _, ProductsListTemplate ) {
+  'text!tpl/ProductView.html',
+], function( $, Backbone, _, productTemplate ) {
   // Extends Backbone.View
-  var ProductsListView = Backbone.View.extend({
+  var PageView = Backbone.View.extend({
     // The View Constructor
     initialize: function() {
       //this.page.on( "added", this.render, this );
@@ -17,11 +17,11 @@ define([
     },
     // Renders all of the Category models on the UI
     render: function() {
-      var rows = this.options.row.attributes.posts;
-      //console.log(rows);
-      this.template = _.template( ProductsListTemplate, { 'rows': rows});
+      this.template = _.template( productTemplate, { 'page': this.options.page.toJSON().page});
       // Renders the view's template inside of the current listview element
-      this.$el.find('ul').html(this.template);
+      //console.log(this.options.page);
+      $('body').append(this.template);
+      //this.$el.addClass('loaded');
       // Maintains chainability
       return this;
     },
@@ -50,6 +50,6 @@ define([
   });
 
     // Returns the View class
-    return ProductsListView;
+    return PageView;
 
 });

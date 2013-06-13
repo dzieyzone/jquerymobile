@@ -11,7 +11,8 @@ define([
   "../models/ProductsModel",
   "../views/ProductsView",
   "../views/ProductsListView",
-], function( $, Backbone, PageModel, PageView, StaticView, ProductsModel, ProductsView, ProductsListView) {
+  "../views/ProductView"
+], function( $, Backbone, PageModel, PageView, StaticView, ProductsModel, ProductsView, ProductsListView, ProductView) {
     // Extends Backbone.Router
     var IssRouter = Backbone.Router.extend( {
         _ChexProducts : null,
@@ -116,6 +117,38 @@ define([
           self.changePage(idPath);
         },
         product : function(id){
+          var self = this,
+              idPath = '#product-'+id;
+          var page = $(idPath);
+          if (page.length > 0){
+            self.changePage(idPath);
+          }
+          else {
+            var page = new PageModel({id:id});
+            page.fetch({
+              data:{
+                page_id : id,
+                json : '1',
+                custom_fields: "mobile_content",
+              },
+              crossDomain: true,
+              processData: true,
+              success: function(){
+                var currentView = new ProductView({el: idPath, page: page});
+                self.changePage(idPath);
+              },
+              error: function(m, r){
+                //var currentView = new ErrorView({el: idPath, page: page});
+                //$.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
+                var changeThis = $(idPath).find('div[data-role="content"]');
+                changeThis.html('Error');
+                jQuery.each(r, function(index, value) {
+                  changeThis.append(index + " : " + value + '<br />');
+                });
+                self.changePage(idPath);
+              }
+            });
+          }
         },
         changePage:function (page) {
             //$(page.el).attr('data-role', 'page');
