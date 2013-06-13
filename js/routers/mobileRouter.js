@@ -6,30 +6,39 @@ define([
   "jquery",
   "backbone", 
   "../models/PageModel",
-  "../collections/PageCollection",
   "../views/PageView",
   '../views/StaticView',
-], function( $, Backbone, PageModel, PageCollection, PageView, StaticView) {
+  "../models/ProductsModel",
+  "../views/ProductsView",
+  "../views/ProductsListView",
+], function( $, Backbone, PageModel, PageView, StaticView, ProductsModel, ProductsView, ProductsListView) {
     // Extends Backbone.Router
     var IssRouter = Backbone.Router.extend( {
+        _ChexProducts : null,
+        _FrankenmanProducts : null,
         // The Router constructor
         initialize: function() {
+          var self = this;
+          $.mobile.loading('show');
+          self._loadProducts();
           Backbone.history.start();
         },
-
         // Backbone.js Routes
         routes: {
             '' : 'staticPage',
             'home' : 'staticPage',
-            '!/:id' : 'pages'
+            '!/:id' : 'pages',
+            'products' : 'products',
+            'product/:id' : 'product'
         },
 
         // Home method
         home: function() {
           // Programatically changes to the categories page
-          $.mobile.changePage( "#home" , { reverse: false, changeHash: false });
+          this.changePage("#home");
         },
         pages: function (pId) {
+          var self = this;
           $.mobile.loading("show");
           $.support.cors = true;
           $.mobile.allowCrossDomainPages = true;
@@ -48,7 +57,7 @@ define([
 
           var idPath = '#' + pId;
           if ($(idPath).hasClass('loaded')){
-            $.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
+            self.changePage(idPath);
             return false;
           }
           var page = new PageModel({id:id});
@@ -63,7 +72,7 @@ define([
             success: function(){
               var currentView = new PageView({el: idPath, page: page});
               //console.log(currentView);
-              $.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
+              self.changePage(idPath);
             },
             error: function(m, r){
               //var currentView = new ErrorView({el: idPath, page: page});
@@ -74,23 +83,76 @@ define([
               jQuery.each(r, function(index, value) {
                 changeThis.append(index + " : " + value + '<br />');
               });
-              $.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
+              self.changePage(idPath);
             }
           });
         },
         staticPage : function(pId){
+          var self = this;
           if( typeof pId == 'undefined') {
             pId = 'home';
           }
           $.mobile.loading('show');
           var idPath = '#' + pId;
           if ($(idPath).hasClass('loaded')){
-            $.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
-            return false;
+            self.changePage(idPath);
+          }
+          else {
+            var currentView = new StaticView({el:idPath, id:pId});
+            self.changePage(idPath);
+          }
+        },
+        products : function(){
+          var self = this,
+            idPath = '#products';
+
+          $.mobile.loading('show');
+          if (!$(idPath).hasClass('loaded')){
+            var currentView = new ProductsView({el: idPath});
+            var chexListView = new ProductsListView({el : '#products-chex', row : self._ChexProducts});
+            var frankenmanListView = new ProductsListView({el : '#products-frankenman', row : self._FrankenmanProducts});
           }
 
-          var currentView = new StaticView({el:idPath, id:pId});
-          $.mobile.changePage( idPath , { reverse: false, changeHash: false,  transition: 'slide'} );
+          self.changePage(idPath);
+        },
+        product : function(id){
+        },
+        changePage:function (page) {
+            //$(page.el).attr('data-role', 'page');
+            //page.render();
+            //$('body').append($(page.el));
+            $.mobile.changePage(page, { reverse: false, changeHash: false,  transition: 'slide'});
+        },
+        _loadProducts: function() {
+          var self = this;
+          self._ChexProducts = new ProductsModel({id : 'chex'});
+          self._ChexProducts.fetch({
+            async : false,
+            data : {
+              tag : 'chex'
+            },
+            processData : true,
+            success : function(){
+              //console.log(self._ChexProducts);
+            },
+            error: function(){
+              console.log('Error on chex');
+            }
+          });
+          self._FrankenmanProducts = new ProductsModel({id : 'frankenman'});
+          self._FrankenmanProducts.fetch({
+            async : false,
+            data : {
+              tag : 'frankenman'
+            },
+            processData : true,
+            success : function(){
+              //console.log(self._FrankenmanProducts);
+            },
+            error: function(){
+              console.log('Error on chex');
+            }
+          });
         }
     } );
     // Returns the Router class
