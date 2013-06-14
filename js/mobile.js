@@ -29,6 +29,8 @@ require([
   );
 
   $(document).delegate('.ui-navbar ul li > a', 'click', function() {
+    var parentPage = $(this).closest('div[data-role="page"]');
+    //console.log(parentPage.attr('id'));
     //search the navbar to deactivate the active button
     $(this).closest('.ui-navbar').find('a').removeClass('ui-btn-active');
 
@@ -36,7 +38,12 @@ require([
     $(this).addClass('ui-btn-active');
 
     //hide the siblings
-    $('#' + $(this).attr('data-href')).show().siblings('.tab-content').hide();
+    if (parentPage.hasClass('product-page-display')){
+      $('.' + $(this).attr('data-href'), parentPage).show().siblings('.tab-content').hide();
+    }
+    else {
+      $('#' + $(this).attr('data-href')).show().siblings('.tab-content').hide();
+    }
 
     return false;
   });
