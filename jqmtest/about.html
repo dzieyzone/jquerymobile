@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>About Frankenman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <link rel="stylesheet" href="themes/frankenman.min.css">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head> 
+<body> 
+
+<div data-role="page">
+  <div data-role="header" data-theme="a">
+    <a data-icon="arrow-l" data-rel="back" data-transition="slide">Back</a>
+    <h1>About Us</h1>
+  </div>
+  <div data-role="content"> 
+    <div id="about-overview">
+      <img src="http://www.frankenman.hk/wp-content/uploads/FACTORY.png" class="img-responsive" />
+      <h2>Company</h2>
+      <p>Frankenman International Ltd is a modern, efficient, well-managed organization focused on and committed to the care and safety of the patients upon whom our products are used. Our slogan of "When you put patients' health first, remarkable things follow" and our dedication to informed design, scrupulous application and meticulous production are not just empty words! We have created an organization focused on quality that has achieved the highest international recognition, being awarded CE and ISO 13485 Certification from T&#220;V S&#220;D Products Service in Munich, and the ISO 9001:2008 award for its management systems from T&#220;V S&#220;D America - remarkable achievements.</p>
+      <h2>Manufacturing</h2>
+      <p>Our manufacturing facilities are constructed and managed to international standards. Full clean room facilities, from 10,000 to 100,000 reflect the highest standards of care and commitment to total quality management. This has earned us an enviable reputation backed by global certification and accreditation by leading regulatory bodies around the world; including TUV SUD Munich, ANVISA, Korean FDA, US FDA, SFDA and CE.</p>
+      <h2>Research and Development</h2>
+      <p>We have invested much time and effort into Research and Development which has led to more than 25 domestic and international patents and applications granted. We have also formed partnerships with leading academic and scientific institutions focused on improving core products and developing new technology. Key areas of research include: Laparoscopic Stapling Devices, Novel Anastomotic Techniques, Surgical Adhesives, Visualisation Technologies, and Bariatric Surgery.</p>
+    </div>
+    <div style="display:none" id="about-history">
+      <img src="http://www.frankenman.hk/wp-content/uploads/history.jpg" class="img-responsive" />
+      <p>Frankenman International Limited and the Chex range of surgical staplers is the culmination of many years of hard work, dedication and commitment by a very talented team of international engineers and clinicians with experience and expertise in many different areas of their discipline.</p>
+      <p>Through the ongoing efforts of our technicians, our expert sales and marketing staff and our team of educated product specialists, Frankenman has been able to deliver quality products to the market through a highly sophisticated and ever-growing global network of specialized distributors.</p>
+      
+    </div>
+    <div style="display:none" id="about-vision">
+      <img src="http://www.frankenman.hk/wp-content/uploads/vision.png" class="img-responsive" />
+      <p>We have always operated under the notion that when you put health first, you test everything as strenuously as possible. You test it yourself and have others test it for you. You ask questions, you go back if necessary, and you incorporate what you've learned into the process, from start to finish.</p>
+      <p>Our vision, and that of our ever-growing distributor network, relies heavily on this notion. We also strongly believe in the idea of responsiveness and willingness to listen to our customers and understand the needs of the market to continually improve upon our product offering.</p>
+      <p>All of our work is done with this clear, concise vision in mind. By doing so, we hope to create products that meet, and exceed, the demands of an increasingly complex worldwide marketplace while also keeping true to ourselves by continuing to put health first.</p>      
+    </div>
+    <div style="display:none" id="about-mission">
+      <img src="http://www.frankenman.hk/wp-content/uploads/mission.jpg" class="img-responsive" >
+      <p>At Frankenman International it is our mission to create an organization that is valued, respected and successful in the global medical device marketplace by an ongoing process of inspection, innovation and overall improvement. We strive to create an organization that is committed to total quality in our manufacturing process and one that engages only in ethical selling. Above all else, we are working to create an organization that provides high quality, yet cost effective medical devices that restore health and improve the quality of life for patients worldwide.</p>
+      <p>When you put patient's health first, remarkable things follow. Like quality design for example - and since we're putting health first - we test that design as strenuously as possible. We test it ourselves and have others test it, and then go back if necessary, to incorporate what we've learned into the manufacturing process. At Frankenman International, we devote all of your energy into all the key aspects of our trade. From research and development, to product quality assurance, to end-user cost reduction and much more. We're not just in the business of making instruments, we also want to make surgeries more successful. We listen to doctors who have put our instruments to use - we read their reports. We invite them to talk with us, to think with us, to brainstorm. For us, continual improvement and innovation are not a buzzwords, but a practice. Put simply, in this business you have two choices; you can put the manufacturing needs in front of the patient, or the patients, needs in front of the manufacturing process - we choose the latter.</p>
+      
+    </div>
+  </div><!-- /content -->
+  
+  <div data-role="footer" data-theme="a" data-position="fixed" class="footer"> 
+    <div id="navbar" data-role="navbar" data-grid="c" data-theme="a">
+      <ul>
+        <li><a data-icon="arrow-l" dest="#about-overview" class="ui-btn-active">Overview</a></li>
+        <li><a data-icon="arrow-l" dest="#about-history">History</a></li>
+        <li><a data-icon="arrow-l" dest="#about-vision">Vision</a></li>
+        <li><a data-icon="arrow-l" dest="#about-mission">Mission</a></li>
+    </div>
+   </div> <!-- /footer -->   
+</div><!-- /page -->
+</body>
+<script>
+$(document).ready(function() {
+	$("#navbar ul a").each(function () {
+	  $(this).click(function() {
+		  $('#content div').css({'display':'none'});
+		  $($(this).attr('dest')).css({'display':'block'});
+		  $(this).addClass('ui-btn-active');
+	  });	
+	});
+});
+</script>
+</html>

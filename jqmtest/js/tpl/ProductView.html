@@ -1,0 +1,13 @@
+<div data-role="page" id="product-<%= page.id %>" data-theme="d" class="product-page-display">
+  <div data-role="header" data-theme="a">
+    <a href="#products" data-iconpos="notext" data-direction="reverse" data-icon="arrow-l"></a>
+    <a href="#" data-iconpos="notext" class="ui-btn-right" data-direction="reverse" data-icon="home"></a>
+    <h1><%= page.tags[0].title %></h1>
+  </div>
+  <div data-role="content" id="product-<%= page.id %>-content">
+    <%= page.custom_fields.mobile_content %>
+  </div><!-- /content -->
+  <div data-role="footer" data-position="fixed" data-theme="c">
+    <%= page.custom_fields.mobile_footer %> 
+  </div> <!-- /footer -->   
+</div>
