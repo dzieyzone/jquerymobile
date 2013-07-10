@@ -17,9 +17,13 @@ define([
     var IssRouter = Backbone.Router.extend( {
         _ChexProducts : null,
         _FrankenmanProducts : null,
+        //_nonce : null,
+        _cookie : null,
         // The Router constructor
         initialize: function() {
           var self = this;
+          $.myVars = new Object();
+          $.myVars.cookie = 'nothing';
           $.mobile.loading('show');
           self._loadProducts();
           Backbone.history.start();
@@ -30,7 +34,8 @@ define([
             'home' : 'staticPage',
             '!/:id' : 'pages',
             'products' : 'products',
-            'product/:id' : 'product'
+            'product/:id' : 'product',
+            'distributor' : 'distributor'
         },
 
         // Home method
@@ -71,7 +76,7 @@ define([
             crossDomain: true,
             processData: true,
             success: function(){
-              var currentView = new PageView({el: idPath, page: page});
+              var currentView = new PageView({el: idPath, page: page.toJSON().page});
               //console.log(currentView);
               self.changePage(idPath);
             },
@@ -150,11 +155,47 @@ define([
             });
           }
         },
-        changePage:function (page) {
+        distributor : function (){
+          var self = this,
+              idPath = '#distributor',
+              url = 'http://m.frankenman.hk/distributor.php';
+          var formValues = {
+            cookie : $.myVars.cookie,
+            method : 'page'
+          };
+
+          $.ajax({
+            async : false,
+            url:url,
+            type:'GET',
+            data : formValues,
+            dataType:"json",
+            success:function (data) {
+              //console.log(data.page.id);
+
+              if (data.page.id == 99999){
+                idPath = '#login';
+                if (!$(idPath).hasClass('loaded')){
+                  var currentView = new PageView({el: idPath, page: data.page});
+                }
+              }
+              else {
+                idPath = '#distributor';
+              }
+              self.changePage(idPath);
+              //testing
+            },
+            error: function(m, r){
+              console.log(r);
+            }
+          });
+        },
+        changePage:function (pageId) {
             //$(page.el).attr('data-role', 'page');
+            //var page = $('#' +pageid);
             //page.render();
             //$('body').append($(page.el));
-            $.mobile.changePage(page, { reverse: false, changeHash: false,  transition: 'slide'});
+            $.mobile.changePage(pageId, { reverse: false, changeHash: false,  transition: 'slide'});
         },
         _loadProducts: function() {
           var self = this;
@@ -172,6 +213,7 @@ define([
               console.log('Error on chex');
             }
           });
+
           self._FrankenmanProducts = new ProductsModel({id : 'frankenman'});
           self._FrankenmanProducts.fetch({
             async : false,
@@ -186,8 +228,18 @@ define([
               console.log('Error on chex');
             }
           });
-        }
-    } );
+          //var url = 'http://m.frankenman.hk/distributor.php?method=nonce';
+          //$.ajax({
+          //  async : false,
+          //  url:url,
+          //  type:'POST',
+          //  dataType:"json",
+          //  success:function (data) {
+          //    self._nonce = data.nonce;
+          //  }
+          //});
+      }
+    });
     // Returns the Router class
     return IssRouter;
 } );
